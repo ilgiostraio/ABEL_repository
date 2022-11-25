@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: abel_description
+    relative_path: urdf\abel.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config\abel.srdf
+  CONFIG:
+    author_name: Gabriele Sisinna
+    author_email: gabriele.sisinna@gmail.com
+    generated_timestamp: 1631607441

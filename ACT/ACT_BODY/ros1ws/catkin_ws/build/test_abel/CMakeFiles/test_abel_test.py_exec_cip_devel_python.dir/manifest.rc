@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/ros1ws/catkin_ws/build/test_abel/CMakeFiles/test_abel_test.py_exec_cip_devel_python.dir/embed.manifest"

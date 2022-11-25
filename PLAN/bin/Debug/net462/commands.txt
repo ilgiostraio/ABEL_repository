@@ -1,0 +1,15 @@
+﻿(require "AttentionModule")
+(reset)
+#(open ecoexp.txt mydata "a")
+#(close)
+(facts)
+(watch rules)
+#"------------"
+#(reject "AttentionModule")
+#(reset)
+"------------"
+"------------
+(fun_lookat 1 0.5 0.1)
+(fun_makeexp 0.5 0.8)
+(fun_speech 3)
+(fun_posture "neutral_high" 10)

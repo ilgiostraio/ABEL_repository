@@ -1,0 +1,62 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.6.2": {},
+    ".NETFramework,Version=v4.6.2/win10-x64": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.6.2": []
+  },
+  "packageFolders": {
+    "C:\\Users\\abel\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_LIB\\AppResources\\Act.Lib.AppResources.csproj",
+      "projectName": "Act.Lib.AppResources",
+      "projectPath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_LIB\\AppResources\\Act.Lib.AppResources.csproj",
+      "packagesPath": "C:\\Users\\abel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_LIB\\AppResources\\obj\\",
+      "projectStyle": "PackageReference",
+      "crossTargeting": true,
+      "configFilePaths": [
+        "C:\\Users\\abel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net462"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\abel\\.nuget\\packages\\act.lib.facecontrol\\1.0.0": {},
+        "C:\\Users\\abel\\Desktop\\ACT\\ACT_CONTROL\\packages": {},
+        "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_LIB\\AppResources\\bin\\Debug": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net462": {
+        "targetAlias": "net462",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+      }
+    },
+    "runtimes": {
+      "win10-x64": {
+        "#import": []
+      }
+    }
+  }
+}

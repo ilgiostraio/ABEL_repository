@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "co3XoNJQGdeZVjBM5Mc9oomoTa6354ut7iO5sUs+YWHQt6QJWA8De2knCVO7i642SPWJGuNdaiFjx7Rz1fZf2Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\Act.Control.GamepadController.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abel\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\abel\\.nuget\\packages\\sharpdx\\4.2.0\\sharpdx.4.2.0.nupkg.sha512",
+    "C:\\Users\\abel\\.nuget\\packages\\sharpdx.xinput\\4.2.0\\sharpdx.xinput.4.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}

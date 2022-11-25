@@ -1,0 +1,27 @@
+{
+    "configurations": [
+      {
+        "browse": {
+          "databaseFilename": "",
+          "limitSymbolsToIncludedHeaders": true
+        },
+        "includePath": [
+          "/home/gabriele/catkin_ws/devel/include/**",
+          "/opt/ros/noetic/include/**",
+          "/home/gabriele/catkin_ws/src/abel_description/include/**",
+          "/home/gabriele/catkin_ws/src/abel_move/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_sdk/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_controllers/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_moveit_bridge/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_operators/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_single_manager/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_single_manager_gui/include/**",
+          "/home/gabriele/catkin_ws/src/dynamixel_workbench_toolbox/include/**",
+          "/home/gabriele/catkin_ws/src/my_dynamixel_tutorial/include/**",
+          "/usr/include/**"
+        ],
+        "name": "ROS"
+      }
+    ],
+    "version": 4
+  }

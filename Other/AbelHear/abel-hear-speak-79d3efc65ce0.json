@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "abel-hear-speak",
+  "private_key_id": "79d3efc65ce05c81c35efb81d9e6c0e4ecd0f645",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdsCamHfaNIkUo\n2YfQh8l2F+BzHRj2MqTgZ+mx8YGXtDZO4mdRfN0/SQUN0EpdgT4c2XjCIYW8niDr\ncysTxUw0FLXDn1vdG/BasIkZWwipaIsDHqeV/Of8/w9LslCIsMnkmhKFdBGDsgDm\n615LcQiYMWo4K51XWiilXcv+ZS1zfl8akhlgIXn0hFcWpf3koOaDh6+c/t7TuoMd\nnuDukDjKK3pyBlbThK9kJm6vtPbLpXbRBrmB+AFi+czBmU4wTPUxRTeUEBrrphmF\nBIgtAEuD0fmJCxfgE0AnVNpPdWN++4PuHYlyRvDGmHeMX8ONikwoY0BrhzSZb8ZU\nJTkGH/mfAgMBAAECggEAJd6W+Y/6lRxk1ZGgT1E87bKAQcT8KKwy8n2iHwzr3X33\nCOzQeT5ud/NWVmHuahRO0Wjc2mpojsq/ByyKbN4WFe/fUxKjYi+CgpUg58j4BI9J\nyz8Caj/pitXKW5iARMOISPFDf29HgYQvOUXPSHjl4n8DjmfTCpZpaoVjJz4vMywG\ndRuSH0dkYrC+fKGInT5+EyUeHxtSUtWXWvxXICo7oZVOC8IH+ChTgGInA8jk0VOk\nQcwraqloQY0OKmH58rA30kP13LwgC563K/gQZW+FvFb/rvCuhOeP7X0Q8imtuAuR\ncVxgJoV+cXVop70HzVfF9Iey60lq0LMnclviqiSAkQKBgQDXw2OBMYCL0PtvNs35\n3r32DfBp3SmBytZ5C5X57rg9TbDIy3eK9PCGdMNHNEpPf3J5QJPnL6+pY0o2fX1r\notC1HF3hU6IS2Kmix9G0quiR5ieI4+OhNUBsVI4nKywl7kx2jqqhClY70/0L8wDY\n1r/pyi8B2ZT9iw8+trZhfoQdSQKBgQC7GDwXSCgmPJClKgeWesid5wWtWxhWSDaM\n3ejK8yJ28W2S6HrcCLvSAGw5SyzV4MJcH6yPXBwWTcVKHvTkP+34HbDDwTwyudsn\n487//Fgd4Kq/qcBVefo5i77efDCmNFtsm4UJDV1Lc5f0NY45UXsR1Vptl+j5hcPc\nFrfXH2TnpwKBgQDK4J8UoK5FSZjSZw7gb4/g6BRyBpH7x/VI1hsMamn0wrOC6saZ\n81yioPHpZwKko6rI1m78B/u9Y24ptG+VIP/r/CNONyyDWhSPyiGmJroOTgJIlje4\nonDUK+GKdO7LL7nYFKfeSvDwypD6hmD6g1rrAsCWlbehe/s2tejh3WtueQKBgCOH\nJZoSNLWWGK2Ufp5fsIrznMtfmg6AZgN3/EXVx7yoefNEvFfePLRTKjnzAY+Xv7C4\nvw72IctGd2ls2XoifbD5CmER57mGO4ymoN9RbvY1fJcqyAAzSoX0+IjNMnvNQ3Mr\nUSb357h1OezA4sIVq/Yl+qcHCtGfSiMYGU77gjDPAoGAalHPngWbe7gMyph+IfNO\ny0kWwOnV3VRisGPps4I2jSl1nEPLmO0dmtI1dc4aFqIu8JD2KUonoIgkPVcWa0Tz\nNMBNoixb3lSKUkE2KBz6Ngw+bmPoNTKHAO/UhqYn3TDzboLVgeB2N6D0waWcRQgp\nzcjNRZTulcuVLkP0w7Nwq28=\n-----END PRIVATE KEY-----\n",
+  "client_email": "abeluwaisi001@abel-hear-speak.iam.gserviceaccount.com",
+  "client_id": "105285681593992124765",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/abeluwaisi001%40abel-hear-speak.iam.gserviceaccount.com"
+}

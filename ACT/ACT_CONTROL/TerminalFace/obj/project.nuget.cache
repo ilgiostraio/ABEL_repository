@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7YKY26zyrXY44sFfxsqTNUUc3ujJ2pKshZZLA5XXUcJR6d1JUc/AVY7nflwzTYAlU996busGKRJtJEpwuONfxQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\TerminalFace\\Act.Control.TerminalFace.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abel\\.nuget\\packages\\easyconsole\\1.1.0\\easyconsole.1.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

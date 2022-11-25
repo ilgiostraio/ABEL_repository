@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_left_arm_controller
+    joints:
+      - joint_D6
+      - joint_D7
+      - joint_D8
+      - joint_D9
+      - joint_D10
+  - name: fake_right_arm_controller
+    joints:
+      - joint_D11
+      - joint_D12
+      - joint_D13
+      - joint_D14
+      - joint_D15
+initial:  # Define initial robot poses.
+  - group: left_arm
+    pose: neutral

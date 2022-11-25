@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+2 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/ros1ws/catkin_ws/build/dynamixel-workbench/dynamixel_workbench_toolbox/CMakeFiles/dynamixel_workbench_toolbox.dir/embed.manifest"

@@ -1,0 +1,3 @@
+<launch>
+  <node name="abel_control" pkg="abel_control" type="main.py" output="screen"/>
+</launch>

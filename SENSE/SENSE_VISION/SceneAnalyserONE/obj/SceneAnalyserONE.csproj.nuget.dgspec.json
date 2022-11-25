@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\SENSE\\SENSE_VISION\\SceneAnalyserONE\\SceneAnalyserONE.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\SENSE\\SENSE_VISION\\SceneAnalyserONE\\SceneAnalyserONE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\SENSE\\SENSE_VISION\\SceneAnalyserONE\\SceneAnalyserONE.csproj",
+        "projectName": "Sense.Vision.SceneAnalyserONE",
+        "projectPath": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\SENSE\\SENSE_VISION\\SceneAnalyserONE\\SceneAnalyserONE.csproj",
+        "packagesPath": "C:\\Users\\komil\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\SENSE\\SENSE_VISION\\SceneAnalyserONE\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\komil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

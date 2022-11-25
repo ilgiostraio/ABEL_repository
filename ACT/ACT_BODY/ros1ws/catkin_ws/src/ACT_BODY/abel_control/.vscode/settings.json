@@ -1,0 +1,13 @@
+{
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/../devel/lib/python3/dist-packages",
+        "${workspaceFolder}/ACT_BODY/abel_control/src",
+        "./src"
+        
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/../devel/lib/python3/dist-packages",
+        "${workspaceFolder}/ACT_BODY/abel_control/src/abel_control",
+    ],
+    "cmake.configureOnOpen": true
+}

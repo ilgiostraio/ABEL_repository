@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\Act.Control.GamepadController.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\Act.Control.GamepadController.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\Act.Control.GamepadController.csproj",
+        "projectName": "Act.Control.GamepadController",
+        "projectPath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\Act.Control.GamepadController.csproj",
+        "packagesPath": "C:\\Users\\abel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_CONTROL\\GamepadControl\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\abel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net462"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\abel\\.nuget\\packages\\act.lib.facecontrol\\1.0.0": {},
+          "C:\\Users\\abel\\Desktop\\ACT\\ACT_CONTROL\\packages": {},
+          "C:\\Users\\abel\\Desktop\\ACT_DOGMA\\ACT\\ACT_LIB\\AppResources\\bin\\Debug": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net462": {
+            "targetAlias": "net462",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net462": {
+          "targetAlias": "net462",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "SharpDX.XInput": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x64": {
+          "#import": []
+        },
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

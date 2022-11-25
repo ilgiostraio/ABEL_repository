@@ -1,0 +1,44 @@
+1. fare account google cloud:
+
+https://console.cloud.google.com
+
+
+2. creare progetto
+
+3. attivare api speech-to-text
+
+4. attivare account di servizio
+istruzioni creazione account di servizio:
+
+https://cloud.google.com/docs/authentication/production#cloud-console
+
+
+quando dice: Create a service account key:
+
+
+dalla home di console.cloud.google.com selezionare il progetto e poi "account di servizio" dalla barra a sinistra
+
+
+
+5. CREARE GOOGLE BUCKET (storage dove caricare i file audio lunghi da trascrivere):
+
+https://cloud.google.com/storage/docs/creating-buckets
+
+
+generare link a file su google bucket:
+
+gs://NOME_DEL_BUCKET/NOME_DEL_FILE
+
+
+
+
+
+
+
+
+
+SCRIPT:
+
+1. dal microfono
+python3 transcribe_local_mic.py 
+appena compare "say something" iniziare a parlare. Smette di registrare e trascrive quando fai una pausa

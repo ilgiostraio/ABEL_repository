@@ -1,0 +1,8 @@
+prefix=C:/ros1ws/catkin_ws/install
+
+Name: abel_control
+Description: Description of abel_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

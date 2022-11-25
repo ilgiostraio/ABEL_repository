@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<constants>
+  <constant name="earthRate">
+    <column units="deg/hr">
+      <value>15.04</value>
+    </column>
+  </constant>
+  <constant name="rad2arcs">
+    <column units="arcs/rad">
+      <value>206264.806247</value>
+    </column>
+  </constant >
+  <constant name="testMat">
+    <column units="null">
+      <value>2</value>
+      <value>3</value>
+      <value>5</value>
+    </column>
+    <column units="null">
+      <value>7</value>
+      <value>11</value>
+      <value>13</value>
+    </column>
+    <column units="null">
+      <value>17</value>
+      <value>19</value>
+      <value>23</value>
+    </column>
+  </constant>
+<constant name="testMat2">
+    <column units="null">
+      <value>{'Hello'}</value>
+    </column>
+    <column units="null">
+      <value>{'world'}</value>
+    </column>
+  </constant>
+</constants>

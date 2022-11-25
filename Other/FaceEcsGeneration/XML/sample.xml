@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<constants>
+  <constant name="piSlice">
+    <column units="null">
+      <value>3.14</value>
+    </column>
+  </constant>
+  <constant name="deg2rad">
+    <column units="deg/rad">
+      <value>0.017453292519943</value>
+    </column>
+  </constant >
+  <constant name="primes3x2">
+    <column units="null">
+      <value>2</value>
+      <value>3</value>
+      <value>5</value>
+    </column>
+    <column units="null">
+      <value>7</value>
+      <value>11</value>
+      <value>13</value>
+    </column>
+  </constant>
+<constant name="testMat2">
+    <column units="null">
+      <value>{'Hello'}</value>
+    </column>
+    <column units="null">
+      <value>{'world'}</value>
+    </column>
+  </constant>
+</constants>

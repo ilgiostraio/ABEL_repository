@@ -1,0 +1,15 @@
+E:\GIT_Repository\Abel\YarpManagerCS\bin\Debug\Test\YarpSender.exe.config
+E:\GIT_Repository\Abel\YarpManagerCS\bin\Debug\Test\YarpSender.exe
+E:\GIT_Repository\Abel\YarpManagerCS\bin\Debug\Test\YarpSender.pdb
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.csprojAssemblyReference.cache
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\MainWindow.baml
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\MainWindow.g.cs
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\App.g.cs
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender_MarkupCompile.cache
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.g.resources
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.Properties.Resources.resources
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.csproj.GenerateResource.cache
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.csproj.CoreCompileInputs.cache
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.csproj.CopyComplete
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.exe
+E:\GIT_Repository\Abel\YarpManagerCS\YarpSender\obj\x86\Debug\YarpSender.pdb
