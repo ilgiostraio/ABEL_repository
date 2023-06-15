@@ -16,3 +16,17 @@ C:\Users\FACETeam\Documents\GitRepo\FACESpeech\FACESpeech\obj\Debug\FACESpeech.p
 F:\Git_repo\FACETeamProject\FACESpeech\FACESpeech\bin\Debug\FACESpeech.exe.config
 F:\Git_repo\FACETeamProject\FACESpeech\FACESpeech\obj\Debug\FACESpeech.exe
 F:\Git_repo\FACETeamProject\FACESpeech\FACESpeech\obj\Debug\FACESpeech.pdb
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\obj\Debug\FACESpeech.csproj.AssemblyReference.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\obj\Debug\FACESpeech.csproj.CoreCompileInputs.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\obj\Debug\FACESpeech.exe
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\obj\Debug\FACESpeech.pdb
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\FACESpeech.exe.config
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\FACESpeech.exe
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\FACESpeech.pdb
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\NAudio.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\YarpCS.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\YarpManagerCS.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\NAudio.xml
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\obj\Debug\FACESpeech.csproj.CopyComplete
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\Newtonsoft.Json.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\Other\FACESpeech\FACESpeech\bin\Debug\ComUtils.dll

@@ -1,34 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Git_repo\\Abel\\bridgeYarpROS\\bridgeYarpROS.csproj": {}
+    "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS\\bridgeYarpROS.csproj": {}
   },
   "projects": {
-    "F:\\Git_repo\\Abel\\bridgeYarpROS\\bridgeYarpROS.csproj": {
+    "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS\\bridgeYarpROS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Git_repo\\Abel\\bridgeYarpROS\\bridgeYarpROS.csproj",
+        "projectUniqueName": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS\\bridgeYarpROS.csproj",
         "projectName": "bridgeYarpROS",
-        "projectPath": "F:\\Git_repo\\Abel\\bridgeYarpROS\\bridgeYarpROS.csproj",
-        "packagesPath": "C:\\Users\\Roberto\\.nuget\\packages\\",
-        "outputPath": "F:\\Git_repo\\Abel\\bridgeYarpROS\\obj\\",
+        "projectPath": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS\\bridgeYarpROS.csproj",
+        "packagesPath": "C:\\Users\\FACETeam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Roberto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\FACETeam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net462"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\nuget_repo": {},
+          "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,20 +50,12 @@
               "target": "Package",
               "version": "[4.3.0, )"
             },
-            "Uml.Robotics.Ros": {
-              "target": "Package",
-              "version": "[1.0.6, )"
-            },
-            "Uml.Robotics.Ros.Messages": {
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "YarpManagerCS": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[1.0.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

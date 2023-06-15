@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj": {}
+    "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj": {
+    "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj",
+        "projectUniqueName": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj",
         "projectName": "AttentionModule",
-        "projectPath": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj",
-        "packagesPath": "C:\\Users\\komil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\komil\\Documents\\GitHub\\ABEL_repo\\PLAN\\Module\\AttentionModule\\obj\\",
+        "projectPath": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\PLAN\\Module\\AttentionModule\\AttentionModule.csproj",
+        "packagesPath": "C:\\Users\\FACETeam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\PLAN\\Module\\AttentionModule\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
-          "C:\\Users\\komil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FACETeam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -23,6 +23,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\FACETeam\\Documents\\GitHub\\ABEL_repository\\CommunicationSystem\\BridgeYarpROS": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,7 +41,7 @@
       "frameworks": {
         "net462": {
           "targetAlias": "net462",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

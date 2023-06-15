@@ -33,3 +33,13 @@ C:\Users\FACETeam\Documents\GitRepo\PLAN\Module\AttentionModule\obj\Debug\Attent
 C:\Users\FACETeam\Documents\GitRepo\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.dll
 C:\Users\FACETeam\Documents\GitRepo\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.pdb
 C:\Users\FACETeam\Documents\GitRepo\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.csproj.AssemblyReference.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\bin\Debug\net462\Modules\AttentionModule\AttentionModule.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\bin\Debug\net462\Modules\AttentionModule\AttentionModule.pdb
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.csproj.AssemblyReference.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.AssemblyInfoInputs.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.AssemblyInfo.cs
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.csproj.CoreCompileInputs.cache
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.csproj.CopyComplete
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.dll
+C:\Users\FACETeam\Documents\GitHub\ABEL_repository\PLAN\Module\AttentionModule\obj\Debug\AttentionModule.pdb

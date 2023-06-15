@@ -12,4 +12,5 @@
 (fun_lookat 1 0.5 0.1)
 (fun_makeexp 0.5 0.8)
 (fun_speech 3)
-(fun_posture "neutral_high" 10)
+(fun_speechstatus 1)
+(fun_people_info 3 12 "happiness" 19 "female")

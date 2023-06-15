@@ -151,7 +151,8 @@ namespace InteractiveCLIPS
             }
         }
 
-        protected void AssertFact(string key, string value)
+        
+        protected void AssertFact(string key, string value) 
         {
             lock (moduleManager.envLockObj)
             {

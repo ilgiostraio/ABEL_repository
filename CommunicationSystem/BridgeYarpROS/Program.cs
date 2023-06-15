@@ -40,16 +40,17 @@ namespace bridgeYarpROS
 
         static YarpPort yarpPort;
         //static string ROS_HOSTNAME = "172.16.12.73";
-        static string ROS_HOSTNAME = "172.16.12.103";
+        static string ROS_HOSTNAME = "172.16.12.103"; 
 
-        static string ROS_MASTER_URI = "http://172.16.12.100:11311/";
+        static string ROS_MASTER_URI = "http://172.16.12.100:11311/"; 
 
 
-        static List<string> yarpPorts       = new List<string> { "/AttentionModule/LookAt:o", "/AttentionModule/Posture:o" };
-        static List<string> yarpPortsType   = new List<string> { "Winner",                    "String" };
+        static List<string> yarpPorts       = new List<string> { "/AttentionModule/LookAt:o", "/AttentionModule/Posture:o", "/AttentionModule/Neck:o" };
+        static List<string> yarpPortsType   = new List<string> { "Winner",                    "String" ,                    "String"};
 
-        static List<string> rosTopic        = new List<string> { "/abel_control/neck/lookat", "/abel_control/arms/gesture" };
-        static List<string> rosTopicType    = new List<string> { "Float64MultiArray",         "String" };
+        static List<string> rosTopic        = new List<string> { "/abel_control/neck/lookat", "/abel_control/arms/gesture" , "/abel_control/neck/gesture"};
+        static List<string> rosTopicType    = new List<string> { "Float64MultiArray",         "String",                      "String"};
+
 
 
         static List<YarpPort> listYarp = new List<YarpPort>();

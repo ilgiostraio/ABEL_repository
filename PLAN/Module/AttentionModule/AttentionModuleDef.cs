@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -30,10 +31,27 @@ namespace AttentionModule
         private YarpPort feedBackSpeechPort;
         private YarpPort moodPort;
         private YarpPort posturePort;
+        private YarpPort neckPort;   //porta per inviare posture (string) via yarpROSbridge al collo
+        private YarpPort sentenceTxtPort;
+        private YarpPort sentenceAudioPort;
+        private YarpPort sentenceEmotionPort;
+        private YarpPort sentencePosePort;
+        private YarpPort peoplePort;
+        private YarpPort contextPort;
+        private YarpPort speechStatusPort;
+        private YarpPort sentenceChangedPort;  //porta per inviare la frase modificata dal brain
 
         private Scene sceneData;
-        private string received ="";
+        private string received = "";
         private string receivedFeedBack = "";
+        private string receivedSentenceEmo = "";
+        private string receivedSentencePose = "";
+        private string receivedSentenceText = "";
+        private string receivedSentenceAudio64 = "";
+
+        private string context = "";
+        private string sentenceChanged = "";
+
 
         private Winner WinnerSub;
         private Winner WinnerSubOld;
@@ -41,6 +59,7 @@ namespace AttentionModule
         private FaceExpression exp;
         private FaceExpression expOld;
 
+        private peopleInfo peopleInfo;
 
         private Thread _worker;
 
@@ -49,21 +68,33 @@ namespace AttentionModule
         public static CLIPSNet.UserFunction uf_speech;
         public static CLIPSNet.UserFunction uf_mood;
         public static CLIPSNet.UserFunction uf_posture;
+        public static CLIPSNet.UserFunction uf_neck;
+        public static CLIPSNet.UserFunction uf_people;
+        public static CLIPSNet.UserFunction uf_context;
+        public static CLIPSNet.UserFunction uf_speechstatus;
+        public static CLIPSNet.UserFunction uf_sentencechanged;
 
         delegate CLIPSNet.DataTypes.Integer lookAtDelegate(CLIPSNet.DataTypes.Integer id, CLIPSNet.DataTypes.Double x, CLIPSNet.DataTypes.Double y, CLIPSNet.DataTypes.Double z);        //aggiunta anche zCoord       ALTILIA
         delegate CLIPSNet.DataTypes.Integer makeExpressionDelegate(CLIPSNet.DataTypes.Double v, CLIPSNet.DataTypes.Double a);
         delegate CLIPSNet.DataTypes.Integer speechDelegate(CLIPSNet.DataTypes.Integer id);
         delegate CLIPSNet.DataTypes.Integer moodDelegate(CLIPSNet.DataTypes.Double v, CLIPSNet.DataTypes.Double a);
         delegate CLIPSNet.DataTypes.Integer postureDelegate(CLIPSNet.DataTypes.String posture, CLIPSNet.DataTypes.Integer duration);
-
+        delegate CLIPSNet.DataTypes.Integer neckDelegate(CLIPSNet.DataTypes.String neck, CLIPSNet.DataTypes.Integer duration);
+        delegate CLIPSNet.DataTypes.Integer peopleDelegate(CLIPSNet.DataTypes.Integer numberOfPeople, CLIPSNet.DataTypes.Integer WinnerID, CLIPSNet.DataTypes.String Exp, CLIPSNet.DataTypes.Integer Age, CLIPSNet.DataTypes.String Gender);  // per lo speech
+        delegate CLIPSNet.DataTypes.Integer contextDelegate(CLIPSNet.DataTypes.String context);
+        delegate CLIPSNet.DataTypes.Integer speechStatusDelegate(CLIPSNet.DataTypes.Integer speechstatus);
+        delegate CLIPSNet.DataTypes.Integer sentenceChangedDelegate(CLIPSNet.DataTypes.String sentenceChanged);
 
 
         private System.Timers.Timer checkPortTimer = new System.Timers.Timer();
-        private bool sceneAnalyzerPortExists = false;
+        //private bool sceneAnalyzerPortExists = false;
         private bool sceneAnalyzerConnectionExists = false;
+        private bool sentenceAudioPortConnectionExists = false;
 
         string WinnerXml;
         string expressionXml;
+
+        public string peopleInfoXml;
 
         float Xmax = 0;
         float X = 0;
@@ -71,7 +102,8 @@ namespace AttentionModule
         float Ymax = 0;
         float Y = 0;
 
-        float Z = 0;              //variabile appoggio Z        ALTILIA
+        float Zmax = 4.5f;
+        float Z = 0;              //      ALTILIA
 
         bool close = false;
 
@@ -82,19 +114,29 @@ namespace AttentionModule
             uf_speech = new CLIPSNet.UserFunction(ClipsEnv, new speechDelegate(FunSpeech), "fun_speech");
             uf_mood= new CLIPSNet.UserFunction(ClipsEnv, new moodDelegate(MoodSpeech), "fun_mood");
             uf_posture = new CLIPSNet.UserFunction(ClipsEnv, new postureDelegate(FunPosture), "fun_posture");
+            uf_neck = new CLIPSNet.UserFunction(ClipsEnv, new neckDelegate(FunNeckPosture), "fun_neck_posture");
+            uf_people = new CLIPSNet.UserFunction(ClipsEnv, new peopleDelegate(FunPeopleInfo), "fun_people_info");
+            uf_context = new CLIPSNet.UserFunction(ClipsEnv, new contextDelegate(FunContext), "fun_context");
+            uf_speechstatus = new CLIPSNet.UserFunction(ClipsEnv, new speechStatusDelegate(FunSpeechStatus), "fun_speechstatus");
+            uf_sentencechanged = new CLIPSNet.UserFunction(ClipsEnv, new sentenceChangedDelegate(FunSentenceChanged), "fun_sentence_changed");
 
 
+            InitYarp();
 
-            InitYarp();   
-                
-            
 
+            ThreadPool.QueueUserWorkItem(receiveSentenceAudio_Elapsed);
             ThreadPool.QueueUserWorkItem(receiveDataTimer_Elapsed);
             ThreadPool.QueueUserWorkItem(receiveFeedBackSpeech_Elapsed);
+            ThreadPool.QueueUserWorkItem(receiveSentenceEmotion_Elapsed);
+            ThreadPool.QueueUserWorkItem(receiveSentencePose_Elapsed);
+            ThreadPool.QueueUserWorkItem(receiveSentenceText_Elapsed);
+
 
 
             WinnerSub = new Winner();
             exp = new FaceExpression();
+
+            peopleInfo = new peopleInfo();
 
         }
 
@@ -120,9 +162,35 @@ namespace AttentionModule
             posturePort = new YarpPort();
             posturePort.openSender("/AttentionModule/Posture:o");
 
-            feedBackSpeechPort = new YarpPort();
-            feedBackSpeechPort.openReceiver("/FACESpeech/FeedBackSpeech:o", "/InteractiveCLIPS/FeedBackSpeech:i");
+            neckPort = new YarpPort();
+            neckPort.openSender("/AttentionModule/Neck:o");
 
+            peoplePort = new YarpPort();
+            peoplePort.openSender("/AttentionModule/People:o");
+
+            contextPort = new YarpPort();
+            contextPort.openSender("/AttentionModule/SendContext:o");
+
+            sentenceChangedPort = new YarpPort();
+            sentenceChangedPort.openSender("/AttentionModule/SendSentenceChanged:o");
+
+            speechStatusPort = new YarpPort();
+            speechStatusPort.openSender("/AttentionModule/SpeechStatus:o");
+
+            feedBackSpeechPort = new YarpPort();
+            feedBackSpeechPort.openReceiver("/RobotSpeech/FeedBackSpeech:o", "/InteractiveCLIPS/FeedBackSpeech:i");
+
+            sentenceTxtPort = new YarpPort();
+            sentenceTxtPort.openReceiver("/AbelServer/SentenceTxt:o", "/InteractiveCLIPS/SentenceTxt:i");
+
+            sentenceAudioPort = new YarpPort();
+            sentenceAudioPort.openReceiver("/AbelServer/SentenceAudio:o", "/InteractiveCLIPS/SentenceAudio:i");
+
+            sentenceEmotionPort = new YarpPort();
+            sentenceEmotionPort.openReceiver("/AbelServer/VoiceEmotion:o", "/InteractiveCLIPS/VoiceEmotion:i");
+
+            sentencePosePort = new YarpPort();
+            sentencePosePort.openReceiver("/AbelServer/Pose:o", "/InteractiveCLIPS/Pose:i");
 
             SceneReceiverPort = new YarpPort();
             SceneReceiverPort.openReceiver("/SceneAnalyzer/MetaSceneXML:o", "/InteractiveCLIPS/MetaSceneXML:i");
@@ -130,24 +198,34 @@ namespace AttentionModule
 
             if (SceneReceiverPort.PortExists("/SceneAnalyzer/MetaSceneXML:o"))
             {
-                ClipsEnv.PrintRouter("RouterTest", "Connection created!");
+                ClipsEnv.PrintRouter("RouterTest", "Connection with SENSE created! \n");
                 System.Diagnostics.Debug.WriteLine("");
                 sceneAnalyzerConnectionExists = true;
-                
-
-             
-               
+                                         
 
             }
             else 
             {
 
-                ClipsEnv.PrintRouter("RouterTest", "Connection NOT created! /SceneAnalyzer/MetaSceneXML:o port does not exist!");
+                ClipsEnv.PrintRouter("RouterTest", "Connection NOT created! /SceneAnalyzer/MetaSceneXML:o port does not exist! \n");
 
             }
 
-            
-         
+            if (sentenceAudioPort.PortExists("/AbelServer/SentenceAudio:o")) 
+            {
+                ClipsEnv.PrintRouter("RouterTest", "Connection with Sentence AUDIO created! \n");
+                System.Diagnostics.Debug.WriteLine("");
+                sentenceAudioPortConnectionExists = true;
+
+
+            }
+            else
+            {
+
+                ClipsEnv.PrintRouter("RouterTest", "Connection NOT created! /AbelServer/SentenceAudio:o port do not exist! \n");
+
+            }
+
 
         }
 
@@ -175,8 +253,10 @@ namespace AttentionModule
                         Y = subject.head.Y / Ymax / 2 + (float)0.5; //aggiustamento per rappresentazione grafica
                         //Y_round = Math.Round(Y, 2);
 
-                        Z = subject.head.Z; // coord Z per convergenza oculare          ALTILIA
-
+                        if (Z <= Zmax)
+                            Z = subject.head.Z / Zmax; // coord Z per convergenza oculare          ALTILIA
+                        else                            //condizione max range + normalizzazione    ALTILIA
+                            Z = 1.0f;               
 
                         
                         WinnerSub.id = (int)id.Value;
@@ -258,6 +338,36 @@ namespace AttentionModule
             return id;
         }
 
+        [ClipsAction("fun_speechstatus")]
+        public CLIPSNet.DataTypes.Integer FunSpeechStatus(CLIPSNet.DataTypes.Integer speechStatus)
+        {
+            if (!close)
+                if (speechStatus.ToString() == "1")
+                {
+                    speechStatusPort.sendData("end");
+                }
+
+            return new CLIPSNet.DataTypes.Integer(101);
+        }
+
+        [ClipsAction("fun_context")]
+        public CLIPSNet.DataTypes.Integer FunContext(CLIPSNet.DataTypes.String context)
+        {
+            if (!close)
+                contextPort.sendData(Convert.ToString(context));
+
+            return new CLIPSNet.DataTypes.Integer(101);
+        }
+
+        [ClipsAction("fun_sentence_changed")]
+        public CLIPSNet.DataTypes.Integer FunSentenceChanged(CLIPSNet.DataTypes.String sentenceChanged)
+        {
+            if (!close)
+                sentenceChangedPort.sendData(Convert.ToString(sentenceChanged));
+
+            return new CLIPSNet.DataTypes.Integer(10221);
+        }
+
         [ClipsAction("fun_mood")]
         public CLIPSNet.DataTypes.Integer MoodSpeech(CLIPSNet.DataTypes.Double v, CLIPSNet.DataTypes.Double a)
         {
@@ -271,10 +381,41 @@ namespace AttentionModule
         public CLIPSNet.DataTypes.Integer FunPosture(CLIPSNet.DataTypes.String posture, CLIPSNet.DataTypes.Integer duration)
         {
             if (!close)
-                posturePort.sendData(Convert.ToString(posture));   //modificato perchè prima c'era moodPort
+                posturePort.sendData(Convert.ToString(posture));   
 
             return new CLIPSNet.DataTypes.Integer(1000);
         }
+
+
+        [ClipsAction("fun_neck_posture")]
+        public CLIPSNet.DataTypes.Integer FunNeckPosture(CLIPSNet.DataTypes.String neck, CLIPSNet.DataTypes.Integer duration)
+        {
+            if (!close)
+                neckPort.sendData(Convert.ToString(neck));   
+
+            return new CLIPSNet.DataTypes.Integer(50);
+        }
+
+        [ClipsAction("fun_people_info")]
+        public CLIPSNet.DataTypes.Integer FunPeopleInfo(CLIPSNet.DataTypes.Integer numberOfPeople, CLIPSNet.DataTypes.Integer WinnerID, 
+                                    CLIPSNet.DataTypes.String Exp, CLIPSNet.DataTypes.Integer Age, CLIPSNet.DataTypes.String Gender)
+        {
+            if (!close)
+            {
+                peopleInfo.numberOfPeople = (int)numberOfPeople.Value;
+                peopleInfo.WinnerID = (int)WinnerID.Value;
+                peopleInfo.Exp = (string)Exp.Value;
+                peopleInfo.Age = (int)Age.Value;
+                peopleInfo.Gender = (string)Gender.Value;
+
+                peopleInfoXml = ComUtils.XmlUtils.Serialize<peopleInfo>(peopleInfo);
+
+                peoplePort.sendData(peopleInfoXml);
+            }
+               
+            return new CLIPSNet.DataTypes.Integer(50);
+        }
+
 
 
         #region Yarp
@@ -317,14 +458,68 @@ namespace AttentionModule
 
         void receiveFeedBackSpeech_Elapsed(object sender)
         {
+            string start_value = "start";
+            string end_value = "end";
             while (!close)
             {
                 feedBackSpeechPort.receivedData(out receivedFeedBack);
-                if (receivedFeedBack != null && receivedFeedBack != "")
+                if (receivedFeedBack.Contains(start_value))
                 {
+                    AssertFact("speak", "start");
+                }
+                else if (receivedFeedBack.Contains(end_value))
+                {
+                    AssertFact("speak", "end");
+                }
+            }
+        }
 
-                    AssertFact("speak", receivedFeedBack.Replace("\"", ""));
+        void receiveSentenceEmotion_Elapsed(object sender)
+        {
+    
+            while (!close)
+            {
+                sentenceEmotionPort.receivedData(out receivedSentenceEmo);
+                AssertFact("sentence-emotion-is", receivedSentenceEmo);
+            }
+        }
 
+        void receiveSentencePose_Elapsed(object sender)
+        {
+
+            while (!close)
+            {
+                sentencePosePort.receivedData(out receivedSentencePose);
+                AssertFact("sentence-pose-is", receivedSentencePose);
+            }
+        }
+
+        void receiveSentenceText_Elapsed(object sender)
+        {
+            while (!close)
+            {
+                sentenceTxtPort.receivedData(out receivedSentenceText);
+                if (receivedSentenceText != null && receivedSentenceText != "")
+                    { 
+                        AssertFact("sentence-text-is", receivedSentenceText);
+                    }  
+            }
+        }
+
+        void receiveSentenceAudio_Elapsed(object sender)
+        {
+            while (!close)
+            {
+                sentenceAudioPort.receivedData(out receivedSentenceAudio64);
+                if (receivedSentenceAudio64 != null && receivedSentenceAudio64 != "")
+                    {
+                    receivedSentenceAudio64 = receivedSentenceAudio64.Remove(0, 1);
+                    receivedSentenceAudio64 = receivedSentenceAudio64.Remove(receivedSentenceAudio64.Length - 1, 1);  
+                    //File.WriteAllText("C:\\Users\\FACETeam\\Desktop\\WriteText.txt", receivedSentenceAudio64);
+                    byte[] data = Convert.FromBase64String(receivedSentenceAudio64);
+                    File.WriteAllBytes("C:\\Users\\FACETeam\\Documents\\GitRepo\\Speech\\audio\\0.wav", data);
+                    AssertFact("dai", "parla-cazzo");
+                        
                 }
             }
         }
@@ -508,8 +703,6 @@ namespace AttentionModule
 
             if (lookAtEyesPort != null)
                 lookAtEyesPort.Close();
-
-
             if (lookAtPort != null)
                 lookAtPort.Close();
             if (expressionPort != null)
@@ -520,10 +713,18 @@ namespace AttentionModule
                 speechPort.Close();
             if (feedBackSpeechPort != null)
                 feedBackSpeechPort.Close();
-
             if (moodPort != null)
                 moodPort.Close();
-            
+            if (neckPort != null)
+                neckPort.Close();
+            if (posturePort != null)
+                posturePort.Close();
+            if (sentenceAudioPort != null)
+                sentenceAudioPort.Close();
+            if (sentenceTxtPort != null)
+                sentenceTxtPort.Close();
+            if (sentenceEmotionPort != null)
+                sentenceEmotionPort.Close();
 
         }
 

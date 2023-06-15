@@ -35,11 +35,11 @@
   <ItemGroup>
     <Reference Include="ComUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\ComUtils.dll</HintPath>
+      <HintPath>..\..\..\..\..\GitRepo\Speech\ComUtils.dll</HintPath>
     </Reference>
     <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\GitRepo\Speech\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="YarpCS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\YarpCS.dll</HintPath>
+      <HintPath>..\LIBRERIE\YarpCS.dll</HintPath>
     </Reference>
     <Reference Include="YarpManagerCS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\YarpManagerCS.dll</HintPath>
+      <HintPath>..\LIBRERIE\YarpManagerCS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -68,33 +68,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="audio\empty01.wav" />
-    <Content Include="audio\empty02.wav" />
-    <Content Include="audio\empty03.wav" />
-    <Content Include="audio\empty04.wav" />
-    <Content Include="audio\empty05.wav" />
-    <Content Include="audio\empty06.wav" />
-    <Content Include="audio\empty07.wav" />
-    <Content Include="audio\empty08.wav" />
-    <Content Include="audio\empty09.wav" />
-    <Content Include="audio\promising01.wav" />
-    <Content Include="audio\promising010.wav" />
-    <Content Include="audio\promising02.wav" />
-    <Content Include="audio\promising03.wav" />
-    <Content Include="audio\promising04.wav" />
-    <Content Include="audio\promising05.wav" />
-    <Content Include="audio\promising06.wav" />
-    <Content Include="audio\promising07.wav" />
-    <Content Include="audio\promising08.wav" />
-    <Content Include="audio\promising09.wav" />
-    <Content Include="audio\promising11.wav" />
-    <Content Include="audio\promising12.wav" />
-    <Content Include="audio\start01.wav" />
-    <Content Include="audio\start02.wav" />
-    <Content Include="audio\start03.wav" />
-    <Content Include="audio\start04.wav" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

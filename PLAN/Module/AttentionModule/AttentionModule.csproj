@@ -45,7 +45,7 @@
 		<Reference Include="PresentationCore" />
 		<Reference Include="PresentationFramework" />
 		<Reference Include="Sense.Lib.FACELibrary">
-		  <HintPath>..\..\bin\Debug\net462\Sense.Lib.FACELibrary.dll</HintPath>
+		  <HintPath>..\..\Sense.Lib.FACELibrary.dll</HintPath>
 		</Reference>
 		<Reference Include="System" />
 		<Reference Include="System.Core" />

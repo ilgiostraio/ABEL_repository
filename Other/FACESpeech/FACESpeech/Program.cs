@@ -7,12 +7,14 @@ using System.Media;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using System.ComponentModel;
-using YarpManagerCS;
+using YarpManagerCS;    // requires version 1.0.0.0 of both YarpCS and YarpManagerCS
 
 
 
 using System.Timers;
 using System.Threading;
+
+
 namespace FACESpeech
 {
     class Program
@@ -23,7 +25,7 @@ namespace FACESpeech
         static YarpPort yarpPortFeedBackSpeech;
         static YarpPort yarpPortLipAnimator;
 
-        static System.Timers.Timer yarpReceiverSpeech;
+//        static System.Timers.Timer yarpReceiverSpeech;
         static string receiveLookAtData = "";
 
 

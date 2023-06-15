@@ -100,9 +100,7 @@
 	<ItemGroup>
 		<PackageReference Include="System.Diagnostics.TextWriterTraceListener" Version="4.3.0" />
 		<PackageReference Include="System.Diagnostics.TraceSource " Version="4.3.0" />
-		<PackageReference Include="Uml.Robotics.Ros" Version="1.0.6" />
-		<PackageReference Include="Uml.Robotics.Ros.Messages" Version="1.0.0" />
-		<PackageReference Include="YarpManagerCS" Version="3.1.1" />
+		<PackageReference Include="YarpManagerCS" Version="1.0.0" />
 	</ItemGroup>
 
 
@@ -110,8 +108,35 @@
 	  <Reference Include="ComUtils">
 	    <HintPath>..\SENSE\bin\Debug\net462\ComUtils.dll</HintPath>
 	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Logging">
+	    <HintPath>Microsoft.Extensions.Logging.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+	    <HintPath>Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Logging.Configuration">
+	    <HintPath>Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Logging.Console">
+	    <HintPath>Microsoft.Extensions.Logging.Console.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Microsoft.Extensions.Logging.Debug">
+	    <HintPath>Microsoft.Extensions.Logging.Debug.dll</HintPath>
+	  </Reference>
 	  <Reference Include="Sense.Lib.FACELibrary">
-	    <HintPath>..\SENSE\bin\Debug\net462\Sense.Lib.FACELibrary.dll</HintPath>
+	    <HintPath>..\..\PLAN\Sense.Lib.FACELibrary.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uml.Robotics.Ros">
+	    <HintPath>yarpCS lib vecchie\Uml.Robotics.Ros.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uml.Robotics.Ros.MessageBase">
+	    <HintPath>Uml.Robotics.Ros.MessageBase.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uml.Robotics.Ros.Messages">
+	    <HintPath>Uml.Robotics.Ros.Messages.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Uml.Robotics.XmlRpc">
+	    <HintPath>Uml.Robotics.XmlRpc.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
