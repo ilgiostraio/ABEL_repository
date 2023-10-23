@@ -49,8 +49,8 @@ namespace AttentionModule
         private string receivedSentenceText = "";
         private string receivedSentenceAudio64 = "";
 
-        private string context = "";
-        private string sentenceChanged = "";
+        //private string context = "";
+        //private string sentenceChanged = "";
 
 
         private Winner WinnerSub;
@@ -130,6 +130,8 @@ namespace AttentionModule
             ThreadPool.QueueUserWorkItem(receiveSentenceEmotion_Elapsed);
             ThreadPool.QueueUserWorkItem(receiveSentencePose_Elapsed);
             ThreadPool.QueueUserWorkItem(receiveSentenceText_Elapsed);
+            //ThreadPool.QueueUserWorkItem(receiveSentenceText_Elapsed);
+
 
 
 
@@ -254,15 +256,15 @@ namespace AttentionModule
                         //Y_round = Math.Round(Y, 2);
 
                         if (Z <= Zmax)
-                            Z = subject.head.Z / Zmax; // coord Z per convergenza oculare          ALTILIA
-                        else                            //condizione max range + normalizzazione    ALTILIA
+                            Z = subject.head.Z / Zmax; // coord Z per convergenza oculare    
+                        else                            //condizione max range + normalizzazione 
                             Z = 1.0f;               
 
                         
                         WinnerSub.id = (int)id.Value;
                         WinnerSub.spinX = X;
                         WinnerSub.spinY = Y;
-                        WinnerSub.spinZ = Z;     //   aggiunta Z ad xml punto           ALTILIA
+                        WinnerSub.spinZ = Z;     
                     }
                 }
 
@@ -273,7 +275,7 @@ namespace AttentionModule
                 WinnerSub.id = (int)id.Value;
                 WinnerSub.spinX = (float)xCoord.Value;
                 WinnerSub.spinY = (float)yCoord.Value;
-                WinnerSub.spinZ = (float)zCoord.Value;     //   aggiunta Z ad xml punto           ALTILIA
+                WinnerSub.spinZ = (float)zCoord.Value;   
             }
 
             if (WinnerSubOld != null)
@@ -500,9 +502,11 @@ namespace AttentionModule
             {
                 sentenceTxtPort.receivedData(out receivedSentenceText);
                 if (receivedSentenceText != null && receivedSentenceText != "")
-                    { 
-                        AssertFact("sentence-text-is", receivedSentenceText);
-                    }  
+                    {
+                    //AssertFact("sentence-text-is", receivedSentenceText);
+                    sentenceChangedPort.sendData(Convert.ToString(receivedSentenceText));
+
+                }  
             }
         }
 

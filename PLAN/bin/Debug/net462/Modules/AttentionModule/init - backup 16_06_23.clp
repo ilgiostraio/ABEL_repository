@@ -1,4 +1,4 @@
-;DEFINITION OF GLOBAL VARIABLES
+;--------------------------------------------------------------DEFINITION OF GLOBAL VARIABLES
 
 (defglobal ?*xfisso* = 0.5) 
 (defglobal ?*yfisso* = 0.5) 
@@ -14,7 +14,7 @@
 (defglobal ?*speaking_probability* = 0.0)
 
 
-;DEFINITION OF TEMPLATES
+;--------------------------------------------------------------DEFINITION OF TEMPLATES
 
 ;--------------------------------------------------------------SUBJECT TEMPLATE
 
@@ -29,7 +29,7 @@
    (slot speak_prob)
    (slot gesture (type INTEGER) (default 0))
    (slot uptime (type NUMBER) (default ?DERIVE) (range 0.0 ?VARIABLE))
-   (slot angle (type NUMBER) (default ?DERIVE))
+   (slot angle)
    
    (slot happiness_ratio (type NUMBER) (default ?DERIVE))
    (slot anger_ratio (type NUMBER) (default ?DERIVE))
@@ -91,7 +91,7 @@
    (slot toiLux (type NUMBER))
 )
 
-;--------------------------------------------------------------ROBOT INNER PARAMETERS TEMPLATE
+;--------------------------------------------------------------ROBOT INNER PARAMETERS
 
 (deftemplate MAIN::winner "This is the winner template, inside you can find ID, point to look and lookrule fired"
    (slot id (type INTEGER) (default 0))
@@ -118,7 +118,7 @@
 )
 
 
-;DEFINITION OF FUNCTIONS
+;--------------------------------------------------------------DEFINITION OF FUNCTIONS
 
 (deffunction precision (?num ?digits)
 (bind ?m (integer (** 10 ?digits)))
@@ -182,7 +182,7 @@
             (* (- ?y1 ?y2) (- ?y1 ?y2))
             (* (- ?z1 ?z2) (- ?z1 ?z2)))))
 
-;DEFINITION OF INIT FACTS
+;--------------------------------------------------------------DEFINITION OF INITIALIZATION FACTS
 
 (deffacts MAIN::initialization "Just to initialize some useful facts" 
    (winner)
@@ -191,8 +191,6 @@
    (tracking_is OFF)
    (max_sm)
 )
-
-;DEFINITION OF RULES
 
 ;--------------------------------------------------------------STANDARD BEHAVIOR
    
@@ -230,10 +228,10 @@
    ?face <- (face (mood ?v ?a))
    =>
    (bind ?nx (/ ?x ?w))
-   (bind ?ny (- 0.6 (/ ?y ?h)))
+   (bind ?ny (- 1 (/ ?y ?h)))
    (bind ?newv (flatmood ?v))
    (bind ?newa (flatmood ?a))
-   (modify ?face (ecs 0.0 0.0) (mood ?newv ?newa))
+   (modify ?face (ecs -0.56 -0.23) (mood ?newv ?newa))
    (modify ?win (id 1) (point ?nx ?ny 100) (lookrule LONELINESS))
    (retract ?surround ?check)
    (assert (winner_is_chosen))
@@ -241,7 +239,7 @@
 
 
 (defrule MAIN::lookrule_speak "This rule selects the winner as the person who is probably speaking"
-   (declare (salience 99))
+   (declare (salience 90))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (speak_prob ?prob) (head ?x ?y ?z))
@@ -261,17 +259,17 @@
 
 
 (defrule MAIN::lookrule_happyface "This rule selects the winner as the person who is smiling"
-   (declare (salience 95))
+   (declare (salience 10000))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (happiness_ratio ?ratio) (head ?x ?y ?z))
    ?win <- (winner)
    ?face <- (face)
-   (test (> ?ratio 0.98))
+   (test (> ?ratio 0.95))
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.80 0.50))
+   (modify ?face (ecs 0.64 0.44))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule HAPPY))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -280,7 +278,7 @@
 
 (defrule MAIN::lookrule_distance1 "This rule selects the winner as the person 
 							   	    who is closer to the robot"
-   (declare (salience 90))
+   (declare (salience 88))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (head ?x ?y ?z))
@@ -290,7 +288,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE1))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -298,7 +296,7 @@
 
 (defrule MAIN::lookrule_distance2 "This rule selects the winner as the person 
                                who is closer to the robot"
-   (declare (salience 89))
+   (declare (salience 87))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (head ?x ?y ?z))
@@ -308,7 +306,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE2))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -316,7 +314,7 @@
 
 (defrule MAIN::lookrule_distance3 "This rule selects the winner as the person 
                                who is closer to the robot"
-   (declare (salience 88))
+   (declare (salience 87))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (head ?x ?y ?z))
@@ -326,7 +324,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE3))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -344,7 +342,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE4))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -352,7 +350,7 @@
 
 (defrule MAIN::lookrule_distance5 "This rule selects the winner as the person 
                                who is closer to the robot"
-   (declare (salience 86))
+   (declare (salience 87))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (head ?x ?y ?z))
@@ -362,7 +360,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE5))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -370,7 +368,7 @@
 
 (defrule MAIN::lookrule_distance6 "This rule selects the winner as the person 
                                who is closer to the robot"
-   (declare (salience 85))
+   (declare (salience 87))
    ?check <- (winner_not_chosen)
    (tracking_is ON)
    (subject (idKinect ?id) (head ?x ?y ?z))
@@ -380,7 +378,7 @@
    =>
    (bind ?x_cal (calib_x ?x ?z))
    (bind ?y_cal (calib_y ?y ?z))
-   (modify ?face (ecs 0.0 0.0))
+   (modify ?face (ecs 0.06 0.05))
    (modify ?win (id ?id) (point ?x_cal ?y_cal ?z) (lookrule DISTANCE6))
    (retract ?check) 
    (assert (winner_is_chosen))
@@ -397,9 +395,8 @@
    (bind ?x_appr (precision ?x 3))
    (bind ?y_appr (precision ?y 3))
    (bind ?z_appr (precision ?z 3))
-   (printout t "LOOK AT ( "?x_appr" , "?y_appr", "?z_appr" ) - ECS (" ?ev " | " ?ea ") - RULE [ "?rulefired" ] - WINNER ( " ?id " )" crlf) 
+   (printout t "LOOK AT ( "?x_appr" , "?y_appr", "?z_appr" ) - SPEAK PROB ("?*speaking_probability*") - RULE [ "?rulefired" ] - WINNER ( " ?id " )" crlf) 
    (fun_lookat ?id ?x_appr ?y_appr ?z_appr)
-   ;(fun_makeexp ?ev ?ea)
    (modify ?win (id 0)(point 0.0 0.0 0.0) (lookrule none))
    (modify ?face (ecs 0.0 0.0))
    (assert (delete subjects))
@@ -451,7 +448,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp 0.80 0.50)
+   (fun_makeexp 0.78 0.55)
 )
 
 (defrule MAIN::check-ANGER
@@ -460,7 +457,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp -0.50 0.60)
+   (fun_makeexp -0.45 0.60)
 )
 
 (defrule MAIN::check-SURPRISE
@@ -469,7 +466,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp 0.20 0.70)
+   (fun_makeexp 0.22 0.73)
 )
 
 (defrule MAIN::check-FEAR
@@ -478,7 +475,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp -0.40 0.70)
+   (fun_makeexp -0.39 0.74)
 )
 
 (defrule MAIN::check-LOVE
@@ -487,7 +484,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp 0.7 0.4)
+   (fun_makeexp 0.46 0.63)
 )
 
 (defrule MAIN::check-SADNESS
@@ -496,7 +493,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp -0.65 -0.25)
+   (fun_makeexp -0.56 -0.22)
 )
 
 (defrule MAIN::check-NEUTRAL
@@ -505,16 +502,7 @@
    =>
    (printout t "sentence-emotion-is " ?what crlf)
    (retract ?remove)
-   (fun_makeexp 0.0 0.0)
-)
-
-(defrule MAIN::check-DISGUST
-   ?remove <- (sentence-emotion-is ?what)
-   (test (eq ?what DISGUST))
-   =>
-   (printout t "sentence-emotion-is " ?what crlf)
-   (retract ?remove)
-   (fun_makeexp -0.60 0.35)
+   (fun_makeexp 0.1 0.1)
 )
 
 
